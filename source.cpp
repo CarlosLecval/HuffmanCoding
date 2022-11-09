@@ -1,0 +1,23 @@
+#include "CompressedFileMaker.h"
+
+int main(){
+    vector <char> letters;
+    vector <string> codes;
+    letters.push_back('a');
+    letters.push_back('b');
+    letters.push_back('c');
+    letters.push_back('d');
+    letters.push_back('e');
+    letters.push_back('f');
+    letters.push_back(' ');
+    codes.push_back("1100");
+    codes.push_back("1101");
+    codes.push_back("100");
+    codes.push_back("101");
+    codes.push_back("111");
+    codes.push_back("00");
+    codes.push_back("01");
+    CompressedFileMaker compressedFile("example.txt",letters,codes);
+    compressedFile.make_encoded_file();
+    return 0;
+}
