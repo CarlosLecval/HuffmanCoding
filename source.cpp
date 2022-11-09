@@ -1,6 +1,6 @@
 #include "CompressedFileMaker.h"
 
-int main(){
+int main(int argc, char *argv[]){
     vector <char> letters;
     vector <string> codes;
     letters.push_back('a');
@@ -17,7 +17,7 @@ int main(){
     codes.push_back("111");
     codes.push_back("00");
     codes.push_back("01");
-    CompressedFileMaker compressedFile("example.txt",letters,codes);
+    CompressedFileMaker compressedFile(argv[1],letters,codes);
     compressedFile.make_encoded_file();
     return 0;
 }

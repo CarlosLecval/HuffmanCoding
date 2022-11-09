@@ -43,10 +43,18 @@ void CompressedFileMaker::openAndGetFile()
 
 void CompressedFileMaker::openAndWriteFile()
 {
+    //crear archivo
     ofstream file;
-    file.open(fileName);
-    file << enconded_text;
-    file.close();
+    file.open("encoded.txt");
+    if (file.is_open())
+    {
+        file << enconded_text;
+        file.close();
+    }
+    else
+    {
+        cout << "Unable to open file";
+    }
 }
 
 void CompressedFileMaker::make_encoded_file()
