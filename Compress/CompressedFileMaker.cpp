@@ -7,24 +7,28 @@ CompressedFileMaker::CompressedFileMaker(string fileName,vector <char> letters, 
     this->codes = codes;
 }
 
-void CompressedFileMaker::encode()
+void CompressedFileMaker::encode_bit_a_bit()
 {
-    for (int i = 0; i < text.size(); i++)
+    //encode the text bit a bit to binary
+    for(int i = 0; i < text.size(); i++)
     {
-        for (int j = 0; j < size; j++)
+        for(int j = 0; j < size; j++)
         {
-            if (text[i] == letters[j])
+            if(text[i] == letters[j])
             {
-                enconded_text += codes[j];
+
+                //bitset<codes[j].lenght()> bits;
             }
         }
     }
+
+
 }
 
-void CompressedFileMaker::openAndGetFile()
+void CompressedFileMaker::openAndGetFile(string namefile)
 {
     ifstream file;
-    file.open(fileName);
+    file.open(namefile);
     if (file.is_open())
     {
         string line;
@@ -41,14 +45,13 @@ void CompressedFileMaker::openAndGetFile()
     //cout << text << endl;
 }
 
-void CompressedFileMaker::openAndWriteFile()
+void CompressedFileMaker::openAndWriteFile(string text, string namefile)
 {
-    //crear archivo
     ofstream file;
-    file.open("encoded.txt");
+    file.open(namefile);
     if (file.is_open())
     {
-        file << enconded_text;
+        file << text;
         file.close();
     }
     else
@@ -57,9 +60,18 @@ void CompressedFileMaker::openAndWriteFile()
     }
 }
 
+void CompressedFileMaker::file_code()
+{
+    string file_code = "";
+    for (int i = 0; i < size; i++)
+    {
+        file_code += letters[i];
+        file_code += codes[i];
+        file_code += " ";
+    }
+    openAndWriteFile(file_code, "file_code.txt");
+}
 void CompressedFileMaker::make_encoded_file()
 {
-    openAndGetFile();
-    encode();
-    openAndWriteFile();
+    openAndGetFile(fileName);
 }

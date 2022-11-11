@@ -9,15 +9,14 @@ int main(int argc, char *argv[]){
     letters.push_back('d');
     letters.push_back('e');
     letters.push_back('f');
-    letters.push_back(' ');
     codes.push_back("1100");
     codes.push_back("1101");
     codes.push_back("100");
     codes.push_back("101");
     codes.push_back("111");
-    codes.push_back("00");
-    codes.push_back("01");
+    codes.push_back("0");
     CompressedFileMaker compressedFile(argv[1],letters,codes);
     compressedFile.make_encoded_file();
+    compressedFile.file_code();
     return 0;
 }
