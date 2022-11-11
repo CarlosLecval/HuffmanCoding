@@ -10,9 +10,9 @@ class HuffmanTree
     public:
         HuffmanTree(int);
         void buildTree();
-        void printTree();
-        //void buildPriorityQueue(); 
-    private:
+        void printTree(Node*);
+        void buildPriorityQueue(); 
         Node *root;
+    private:
         PriorityQueue pq;
 };

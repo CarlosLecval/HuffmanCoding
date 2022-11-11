@@ -2,49 +2,53 @@
 
 PriorityQueue::PriorityQueue(int capacity)
 {
-    this->size = 0;
-    pq = new Node*[capacity+1];
+    this->size = -1;
+    pq = new Node*[capacity];
 }
 
-void PriorityQueue::push(Node* node)
+void PriorityQueue::push(Node* value)
 {
-    pq[++size] = node;
+    pq[++size] = value;
     swim(size);
 }
 
 void PriorityQueue::swim(int k)
 {
-    while (k > 1 && pq[k]->frequency > pq[k / 2]->frequency)
+    while (k > 0 && pq[k]->frequency < pq[(k - 1) / 2]->frequency)
     {
-        Node* temp = pq[k];
-        pq[k] = pq[k / 2];
-        pq[k / 2] = temp;
-        k = k / 2;
+        swap(pq[k], pq[(k - 1) / 2]);
+        k = (k - 1) / 2;
     }
 }
 
 Node* PriorityQueue::pop()
 {
-    Node* max = pq[1];
-    Node* temp = pq[1];
-    pq[1] = pq[size];
-    pq[size--] = temp;
-    sink(1);
-    pq[size+1] = 0;
+    Node* max = pq[0];
+    pq[0] = pq[size--];
+    sink(0);
     return max;
 }
 
 void PriorityQueue::sink(int k)
 {
-    while (2*k <= size)
+    int maxIndex = k;
+    int left = (2 * k) + 1;
+    if(left <= size && pq[left]->frequency < pq[maxIndex]->frequency)
     {
-        int j = 2*k;
-        if (j < size && pq[j] < pq[j + 1]) j++;
-        if (pq[k]->frequency > pq[j]->frequency) break;
-        Node* temp = pq[k];
-        pq[k] = pq[j];
-        pq[j] = temp;
-        k = j;
+        maxIndex = left;
+    }
+
+    int right = (2 * k) + 2;
+
+    if(right <= size && pq[right]->frequency < pq[maxIndex]->frequency)
+    {
+        maxIndex = right;
+    }
+
+    if(maxIndex != k)
+    {
+        swap(pq[k], pq[maxIndex]);
+        sink(maxIndex);
     }
 }
 
@@ -55,8 +59,9 @@ int PriorityQueue::getSize()
 
 void PriorityQueue::print()
 {
-    for (int i = 1; i < size; i++)
-        cout << pq[i]->character << " " << pq[i]->frequency << " || ";
+    for (int i = 0; i <= size; i++)
+        cout << pq[i]->character << " " << pq[i]->frequency << "||";
     cout << endl;
 }
+
 
