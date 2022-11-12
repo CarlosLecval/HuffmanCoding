@@ -34,15 +34,13 @@ void HuffmanTree::printTree(Node *node)
     printTree(node->right);
 }
 
-void HuffmanTree::buildPriorityQueue()
+void HuffmanTree::buildPriorityQueue(vector<char> caracter,vector<int> frecuencia)
 {
-    pq.push(new Node('f', 45));
-    pq.push(new Node('e', 16));
-    pq.push(new Node('d', 13));
-    pq.push(new Node('c', 12));
-    pq.push(new Node('b', 9));
-    pq.push(new Node('a', 5));
-    pq.print();
+    for (int i = 0; i < caracter.size(); i++)
+    {
+        Node *node = new Node(caracter[i], frecuencia[i]);
+        pq.push(node);
+    }
 }
 
 void HuffmanTree::CreacionCodigos(Node* raiz)

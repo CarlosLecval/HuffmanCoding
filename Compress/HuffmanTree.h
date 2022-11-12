@@ -21,7 +21,7 @@ class HuffmanTree
         HuffmanTree(int);
         void buildTree();
         void printTree(Node*);
-        void buildPriorityQueue(); 
+        void buildPriorityQueue(vector<char> caracter,vector<int> frecuencia); 
         void CreacionCodigos(Node*);
         Node *root;
         CodigoCaracter Caracteres1;
