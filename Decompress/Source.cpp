@@ -5,7 +5,8 @@ int main()
 {
     int cont = 0;
 
-    ifstream file("/Users/jyaru/Documents/Escuela/Tercer semestre/Estructura de datos/HuffmanCoding/Compress/file_code.txt");
+    // ifstream file("/Users/jyaru/Documents/Escuela/Tercer semestre/Estructura de datos/HuffmanCoding/Compress/file_code.txt");
+    ifstream file("../Compress/file_code.txt");
     string line;
     while (getline(file, line))
     {
@@ -14,21 +15,21 @@ int main()
     char characterArray[cont];
     string codeArray[cont];
     file.close();
-    file.open("/Users/jyaru/Documents/Escuela/Tercer semestre/Estructura de datos/HuffmanCoding/Compress/file_code.txt");
+    // file.open("/Users/jyaru/Documents/Escuela/Tercer semestre/Estructura de datos/HuffmanCoding/Compress/file_code.txt");
+    file.open("../Compress/file_code.txt");
     cont = 0;
-    while(getline(file, line))
+    while (getline(file, line))
     {
         characterArray[cont] = line[0];
         codeArray[cont] = line.substr(1, line.size());
         cont++;
     }
     file.close();
-   
 
     BinaryStdIn binaryStdIn("encoded.dat");
 
     string binaryCode = "";
-    
+
     while (!binaryStdIn.is_empty())
     {
         bool bit = binaryStdIn.readBool();

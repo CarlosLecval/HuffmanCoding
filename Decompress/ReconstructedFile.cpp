@@ -7,9 +7,10 @@ ReconstructedFile::ReconstructedFile(char *characterArray, string *codeArray, in
 
 void ReconstructedFile::createBinaryTree(char *characterArray, string *codeArray, int sizeArray)
 {
+    CharacterNode *newNode;
     for (int i = 0; i < sizeArray; i++)
     {
-        CharacterNode *newNode = binaryTree.createNode(characterArray[i], codeArray[i]);
+        newNode = binaryTree.createNode(characterArray[i], codeArray[i]);
         binaryTree.pushNode(newNode, 0);
     }
 }
@@ -34,6 +35,7 @@ string ReconstructedFile::decompress(string textCode)
 void ReconstructedFile::openAndWriteFile(string text)
 {
     fstream file;
+    bool anterior = false;
     file.open("textoDescomprimido.txt", ios::out);
     if (!file)
     {
@@ -41,6 +43,22 @@ void ReconstructedFile::openAndWriteFile(string text)
         return;
     }
     cout << "File created successfully!" << endl;
-    file << text;
+    for (int i = 0; i < text.size(); i++)
+    {
+        if (text[i] == '\\')
+        {
+            anterior = true;
+            continue;
+        }
+
+        if (anterior && text[i] == 'n')
+        {
+            file << endl;
+            anterior = false;
+            continue;
+        }
+
+        file << text[i];
+    }
     file.close();
 }

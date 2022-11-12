@@ -1,5 +1,5 @@
 #include "CompressedFileMaker.h"
-CompressedFileMaker::CompressedFileMaker(string fileName,vector <char> letters, vector <string> codes)
+CompressedFileMaker::CompressedFileMaker(string fileName, vector<char> letters, vector<string> codes)
 {
     this->fileName = fileName;
     this->size = letters.size();
@@ -10,15 +10,15 @@ CompressedFileMaker::CompressedFileMaker(string fileName,vector <char> letters, 
 void CompressedFileMaker::encode_bit_a_bit()
 {
     BinaryStdOut binaryStdOut("encoded.dat");
-    for(int i = 0; i < text.size(); i++)
+    for (int i = 0; i < text.size(); i++)
     {
-        for(int j = 0; j < size; j++)
+        for (int j = 0; j < size; j++)
         {
-            if(text[i] == letters[j])
+            if (text[i] == letters[j])
             {
-                for(int k = 0; k < codes[j].size(); k++)
+                for (int k = 0; k < codes[j].size(); k++)
                 {
-                    if(codes[j][k] == '0')
+                    if (codes[j][k] == '0')
                     {
                         binaryStdOut.write(false);
                     }
@@ -31,7 +31,7 @@ void CompressedFileMaker::encode_bit_a_bit()
         }
     }
     binaryStdOut.close();
-    cout<<"Encoded file created successfully as encoded.dat" <<endl;
+    cout << "Encoded file created successfully as encoded.dat" << endl;
 }
 
 void CompressedFileMaker::openAndGetFile(string namefile)
