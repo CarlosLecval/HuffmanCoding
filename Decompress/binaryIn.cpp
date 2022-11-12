@@ -37,7 +37,6 @@ bool BinaryStdIn::readBool() {
 char BinaryStdIn::readChar() {
     if(N == 8) {
         char x = buffer;
-        cout<<"x = "<<x<<endl;
         fillBuffer();
         return x;
     }
@@ -74,4 +73,8 @@ int BinaryStdIn::readInt() {
 
 void BinaryStdIn::close() {
     fin.close();
+}
+
+bool BinaryStdIn::is_empty() {
+    return fin.eof();
 }

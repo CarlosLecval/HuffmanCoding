@@ -76,7 +76,7 @@ void CompressedFileMaker::file_code()
     {
         file_code += letters[i];
         file_code += codes[i];
-        file_code += " ";
+        file_code += "\n";
     }
     openAndWriteFile(file_code, "file_code.txt");
 }
