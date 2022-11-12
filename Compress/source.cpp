@@ -63,9 +63,6 @@ FrecuenciaCaracter Frecuencias(string archivo)
         }
         cont++;
     }
-    for (int j=0; j< Caracteres.caracter.size(); j++){
-        cout << Caracteres.caracter[j] << "\t" << Caracteres.frecuencia[j] << endl;
-    }
     return Caracteres;
     MyReadFile.close();
 }
@@ -79,11 +76,9 @@ int main(int argc, char *argv[]){
     huffmanTree.buildPriorityQueue(f1.caracter, f1.frecuencia);
     huffmanTree.buildTree();
     huffmanTree.CreacionCodigos(huffmanTree.root);
-    cout<<huffmanTree.Caracteres1.codigo.size()<<endl;
     for (int i=0; i< huffmanTree.Caracteres1.caracter.size(); i++){
         letters.push_back(huffmanTree.Caracteres1.caracter[i]);
         codes.push_back(huffmanTree.Caracteres1.codigo[i]);
-        cout<<huffmanTree.Caracteres1.caracter[i]<<"\t"<<huffmanTree.Caracteres1.codigo[i]<<endl;
     }
 
     CompressedFileMaker compressedFile(argv[1],letters,codes);
