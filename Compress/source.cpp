@@ -17,6 +17,5 @@ int main(int argc, char *argv[]){
     codes.push_back("0");
     CompressedFileMaker compressedFile(argv[1],letters,codes);
     compressedFile.make_encoded_file();
-    compressedFile.file_code();
     return 0;
 }

@@ -9,20 +9,29 @@ CompressedFileMaker::CompressedFileMaker(string fileName,vector <char> letters, 
 
 void CompressedFileMaker::encode_bit_a_bit()
 {
-    //encode the text bit a bit to binary
+    BinaryStdOut binaryStdOut("encoded.dat");
+
     for(int i = 0; i < text.size(); i++)
     {
         for(int j = 0; j < size; j++)
         {
             if(text[i] == letters[j])
             {
-
-                //bitset<codes[j].lenght()> bits;
+                for(int k = 0; k < codes[j].size(); k++)
+                {
+                    if(codes[j][k] == '0')
+                    {
+                        binaryStdOut.write(false);
+                    }
+                    else
+                    {
+                        binaryStdOut.write(true);
+                    }
+                }
             }
         }
     }
-
-
+    binaryStdOut.close();
 }
 
 void CompressedFileMaker::openAndGetFile(string namefile)
@@ -74,4 +83,6 @@ void CompressedFileMaker::file_code()
 void CompressedFileMaker::make_encoded_file()
 {
     openAndGetFile(fileName);
+    file_code();
+    encode_bit_a_bit();
 }
