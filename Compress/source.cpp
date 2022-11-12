@@ -73,11 +73,25 @@ FrecuenciaCaracter Frecuencias(string archivo)
 int main(int argc, char *argv[]){
     vector <char> letters;
     vector <string> codes;
+    letters.push_back('a');
+    letters.push_back('b');
+    letters.push_back('c');
+    letters.push_back('d');
+    letters.push_back('e');
+    letters.push_back('f');
+    letters.push_back(' ');
+    codes.push_back("1100");
+    codes.push_back("1101");
+    codes.push_back("100");
+    codes.push_back("101");
+    codes.push_back("111");
+    codes.push_back("00");
+    codes.push_back("01");
     FrecuenciaCaracter f1 =  Frecuencias(argv[1]);
     int size = f1.caracter.size();
     HuffmanTree huffmanTree(size);
     huffmanTree.CreacionCodigos(huffmanTree.root);
-    cout<<huffmanTree.Caracteres1.caracter.size()<<endl;
+    cout<<huffmanTree.Caracteres1.codigo.size()<<endl;
     for (int i=0; i< huffmanTree.Caracteres1.caracter.size(); i++){
         letters.push_back(huffmanTree.Caracteres1.caracter[i]);
         codes.push_back(huffmanTree.Caracteres1.codigo[i]);
