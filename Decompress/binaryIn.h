@@ -23,6 +23,7 @@ public:
     char readChar();
     int readInt();
     void close();
+    bool is_empty();
 };
 
 
