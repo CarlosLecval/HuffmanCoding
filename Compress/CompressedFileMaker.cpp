@@ -10,7 +10,6 @@ CompressedFileMaker::CompressedFileMaker(string fileName,vector <char> letters, 
 void CompressedFileMaker::encode_bit_a_bit()
 {
     BinaryStdOut binaryStdOut("encoded.dat");
-
     for(int i = 0; i < text.size(); i++)
     {
         for(int j = 0; j < size; j++)
@@ -45,14 +44,16 @@ void CompressedFileMaker::openAndGetFile(string namefile)
         while (getline(file, line))
         {
             text += line;
+            text += "\\";
+            text += "n";
         }
+        text = text.substr(0, text.size() - 2);
         file.close();
     }
     else
     {
         cout << "Unable to open file";
     }
-    //cout << text << endl;
 }
 
 void CompressedFileMaker::openAndWriteFile(string text, string namefile)

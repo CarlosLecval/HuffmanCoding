@@ -80,7 +80,7 @@ int main(int argc, char *argv[]){
         letters.push_back(huffmanTree.Caracteres1.caracter[i]);
         codes.push_back(huffmanTree.Caracteres1.codigo[i]);
     }
-
+    
     CompressedFileMaker compressedFile(argv[1],letters,codes);
     compressedFile.make_encoded_file();
     return 0;
