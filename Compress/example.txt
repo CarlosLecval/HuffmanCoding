@@ -1,1 +1,4 @@
-Mi nombre es jyaru y creo que  es importante la compresion de archivos ya que permite que los archivos pesen menos. Por ejemplo, si tienes un archivo de 1GB y lo comprimes a 500MB, el archivo pesara menos y ocupara menos espacio en el disco duro.
+Hola soy jyaru y creo que es importante
+la compresion de texto
+ya que permite ahorrarmemoria
+y tiempo

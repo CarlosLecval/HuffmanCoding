@@ -24,7 +24,6 @@ string ReconstructedFile::decompress(string textCode)
         searchedChar = binaryTree.moveAuxWithCode(textCode[i]);
         if (searchedChar != '\0')
         {
-            // cout << "The element '" << searchedChar << "' has been found" << endl;
             decompressedText += searchedChar;
             binaryTree.moveAuxToRoot();
         }
