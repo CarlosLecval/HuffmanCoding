@@ -70,63 +70,6 @@ void HuffmanTree::CreacionCodigos(Node* raiz)
     }
     codigoGeneral.pop_back();
 }
-FrecuenciaCaracter HuffmanTree::Frecuencias(string archivo)
-{
-    string texto;
-    int cont = -1;
-    bool esta = false;
-    ifstream MyReadFile(archivo);
-    while (getline (MyReadFile, texto)) 
-    {
-        for (int i=0; i<texto.size(); i++){
-            esta = false;
-            for (int j=0; j< Caracteres.caracter.size(); j++){
-                if (Caracteres.caracter[j] == texto[i]){
-                    Caracteres.frecuencia[j] += 1;
-                    esta = true;
-                }
-            }
-            if (esta == false){
-                Caracteres.caracter.push_back(texto[i]);
-                Caracteres.frecuencia.push_back(1);
-            }
-        }
-        if(cont != -1)
-        {
-            saltoLinea();
-        }
-        cont++;
-    }
-    for (int j=0; j< Caracteres.caracter.size(); j++){
-        cout << Caracteres.caracter[j] << "\t" << Caracteres.frecuencia[j] << endl;
-    }
-    return Caracteres;
-    MyReadFile.close();
-}
 
-void HuffmanTree::saltoLinea(){
-    bool esta = false;
-    for (int j=0; j< Caracteres.caracter.size(); j++)
-    {
-        if (Caracteres.caracter[j] == '\\'){
-            Caracteres.frecuencia[j] += 1;
-            esta = true;
-        }
-    }
-    if (esta == false){
-        Caracteres.caracter.push_back('\\');
-        Caracteres.frecuencia.push_back(1);
-    }
-    esta = false;
-    for (int j=0; j< Caracteres.caracter.size(); j++)
-    {
-        if (Caracteres.caracter[j] == 'n'){
-            Caracteres.frecuencia[j] += 1;
-            esta = true;
-        }
-    }
-    if (esta == false){
-        Caracteres.caracter.push_back('n');
-        Caracteres.frecuencia.push_back(1);
-    }
-}
+
+
