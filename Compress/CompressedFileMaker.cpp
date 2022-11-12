@@ -32,6 +32,7 @@ void CompressedFileMaker::encode_bit_a_bit()
         }
     }
     binaryStdOut.close();
+    cout<<"Encoded file created successfully as encoded.dat" <<endl;
 }
 
 void CompressedFileMaker::openAndGetFile(string namefile)

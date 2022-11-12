@@ -13,12 +13,10 @@ void HuffmanTree::buildTree()
 
         Node *left = pq.pop();
         Node *right = pq.pop();
-        cout << "left: " << left->frequency << " right: " << right->frequency << endl;
         Node *parent = new Node('#', left->frequency + right->frequency);
         parent->left = left;
         parent->right = right;
         pq.push(parent);
-        //pq.print();
     }
     root = pq.pop();
 }
@@ -45,10 +43,7 @@ void HuffmanTree::buildPriorityQueue(vector<char> caracter,vector<int> frecuenci
 
 void HuffmanTree::CreacionCodigos(Node* raiz)
 {
-  
-    //cout << "codigoGeneral: " << codigoGeneral << endl;
     if (raiz == NULL){
-        cout << "entro";
         codigoGeneral.pop_back();
         return;
     }

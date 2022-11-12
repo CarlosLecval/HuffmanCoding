@@ -5,7 +5,7 @@ int main()
 {
     int cont = 0;
 
-    ifstream file("file_code.txt");
+    ifstream file("/Users/jyaru/Documents/Escuela/Tercer semestre/Estructura de datos/HuffmanCoding/Compress/file_code.txt");
     string line;
     while (getline(file, line))
     {
@@ -14,7 +14,7 @@ int main()
     char characterArray[cont];
     string codeArray[cont];
     file.close();
-    file.open("file_code.txt");
+    file.open("/Users/jyaru/Documents/Escuela/Tercer semestre/Estructura de datos/HuffmanCoding/Compress/file_code.txt");
     cont = 0;
     while(getline(file, line))
     {
