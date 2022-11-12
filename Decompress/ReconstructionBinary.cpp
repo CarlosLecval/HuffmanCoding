@@ -30,7 +30,6 @@ void ReconstructionBinary::pushNode(CharacterNode *newNode, int position)
             aux->left = newNode;
         else if (newNode->code[position] == '1')
             aux->right = newNode;
-        cout << "'" << newNode->character << "' has been pushed to the tree." << endl;
         moveAuxToRoot();
         return;
     }
