@@ -41,11 +41,9 @@ int main()
             binaryCode += "0";
         }
     }
-    cout << binaryCode << endl;
 
     ReconstructedFile decompressedFile(characterArray, codeArray, cont);
     string text = decompressedFile.decompress(binaryCode);
-    cout << text << endl;
     decompressedFile.openAndWriteFile(text);
 
     return 0;

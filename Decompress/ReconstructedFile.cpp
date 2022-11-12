@@ -10,8 +10,6 @@ void ReconstructedFile::createBinaryTree(char *characterArray, string *codeArray
     for (int i = 0; i < sizeArray; i++)
     {
         CharacterNode *newNode = binaryTree.createNode(characterArray[i], codeArray[i]);
-        // cout << "Node character: " << newNode->character << endl;
-        // cout << "Node code: " << newNode->code << endl;
         binaryTree.pushNode(newNode, 0);
     }
 }
@@ -31,9 +29,6 @@ string ReconstructedFile::decompress(string textCode)
             binaryTree.moveAuxToRoot();
         }
     }
-
-    cout << "Code compressed text: " << textCode << endl;
-    cout << "Complete text: " << decompressedText << endl;
     return decompressedText;
 }
 
