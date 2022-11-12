@@ -8,10 +8,7 @@
 
 using namespace std;
 
-struct FrecuenciaCaracter{
-    vector<char> caracter;
-    vector<int> frecuencia;
-};
+
 
 struct CodigoCaracter{
     vector<char> caracter;
@@ -26,13 +23,10 @@ class HuffmanTree
         void printTree(Node*);
         void buildPriorityQueue(); 
         void CreacionCodigos(Node*);
-        FrecuenciaCaracter Frecuencias(string archivo);
         Node *root;
-        void saltoLinea();
+        CodigoCaracter Caracteres1;
     private:
         PriorityQueue pq;
-        CodigoCaracter Caracteres1;
-        FrecuenciaCaracter Caracteres;
         string codigoGeneral;
 
 };
