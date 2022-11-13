@@ -26,10 +26,6 @@ bool BinaryStdIn::readBool() {
     N--;
     bool bit = ((buffer >> N) & 1) == 1;
     if (N == 0) fillBuffer();
-    
-    #ifdef DEBUG
-        cout << "Function readBool() return : " << bit << endl;
-    #endif
 
     return bit;
 }

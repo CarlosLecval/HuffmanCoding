@@ -9,7 +9,7 @@ CompressedFileMaker::CompressedFileMaker(string fileName, vector<char> letters, 
 
 void CompressedFileMaker::encode_bit_a_bit()
 {
-    BinaryStdOut binaryStdOut("encoded.dat");
+    BinaryStdOut binaryStdOut("encoded");
     for (int i = 0; i < text.size(); i++)
     {
         for (int j = 0; j < size; j++)
@@ -31,7 +31,7 @@ void CompressedFileMaker::encode_bit_a_bit()
         }
     }
     binaryStdOut.close();
-    cout << "Encoded file created successfully as encoded.dat" << endl;
+    cout << "Encoded file created successfully as encoded" << endl;
 }
 
 void CompressedFileMaker::openAndGetFile(string namefile)

@@ -56,7 +56,7 @@ void BinaryStdOut::write(int x) {
     writeChar((x >> 0) & 0xff);
 }
 
-void BinaryStdOut::flush() {
+void BinaryStdOut::flush(){
     clearBuffer();
     fout.flush();
 }
@@ -65,4 +65,8 @@ void BinaryStdOut::close() {
     flush();
     fout.close();
     cout << "-------------------- BinaryStdOut Writing Closing --------------------" << endl;
+}
+
+int BinaryStdOut::getN() {
+    return N;
 }
