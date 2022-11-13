@@ -29,31 +29,8 @@ void BinaryStdOut::writeBit(bool bit) {
     if (N == 8) clearBuffer();
 }
 
-void BinaryStdOut::writeChar(char ch) {
-    if (N == 0) {
-        fout << ch;
-        return;        
-    }
-
-    for (int i = 0; i < 8; i++) {
-        bool bit = ((ch >> (8 - i - 1)) & 1 ) == 1;
-        writeBit(bit);        
-    }
-}
-
 void BinaryStdOut::write(bool x) {
     writeBit(x);
-}
-
-void BinaryStdOut::write(char x) {
-    writeChar(x);
-}
-
-void BinaryStdOut::write(int x) {
-    writeChar((x >> 24) & 0xff);
-    writeChar((x >> 16) & 0xff);
-    writeChar((x >> 8) & 0xff);
-    writeChar((x >> 0) & 0xff);
 }
 
 void BinaryStdOut::flush(){
