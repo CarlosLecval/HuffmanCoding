@@ -39,6 +39,12 @@ int main()
             binaryCode += "0";
         }
     }
+    ifstream file2("../Compress/extra_info.txt");
+    string line2;
+    getline(file2, line2);
+    int extra_info = stoi(line2);
+    file2.close();
+    binaryCode = binaryCode.substr(0, binaryCode.size() - extra_info);
     ReconstructedFile decompressedFile(characterArray, codeArray, cont);
     string text = decompressedFile.decompress(binaryCode);
     decompressedFile.openAndWriteFile(text);

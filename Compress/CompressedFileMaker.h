@@ -17,7 +17,7 @@ public:
 private:
     string fileName;
     string text;
-    int trailing_zeros;
+    int cont;
     vector <char> letters;
     vector <string> codes;
     int size;
