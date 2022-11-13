@@ -1,3 +1,4 @@
-Hola soy un archivo de texto y esto
-es una prueba de que se puede
-cumplir los sueños
+Hola soy un ejemplo de archivo de compresión de texto
+que usa arboles de huffman
+ponganos diez si esto funciona
+y si no tambien (:

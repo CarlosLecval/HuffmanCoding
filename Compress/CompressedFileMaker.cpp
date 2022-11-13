@@ -5,10 +5,12 @@ CompressedFileMaker::CompressedFileMaker(string fileName, vector<char> letters, 
     this->size = letters.size();
     this->letters = letters;
     this->codes = codes;
+    cont = 0;
 }
 
 void CompressedFileMaker::encode_bit_a_bit()
 {
+    int cont2 = 0;
     BinaryStdOut binaryStdOut("encoded");
     for (int i = 0; i < text.size(); i++)
     {
@@ -26,9 +28,14 @@ void CompressedFileMaker::encode_bit_a_bit()
                     {
                         binaryStdOut.write(true);
                     }
+                    cont2++;
                 }
             }
         }
+    }
+    while(cont2%8!=0){
+        cont++;
+        cont2++;
     }
     binaryStdOut.close();
     cout << "Encoded file created successfully as encoded" << endl;
@@ -84,7 +91,18 @@ void CompressedFileMaker::file_code()
 }
 void CompressedFileMaker::make_encoded_file()
 {
+    ofstream file;
     openAndGetFile(fileName);
     file_code();
     encode_bit_a_bit();
+    file.open("extra_info.txt");
+    if (file.is_open())
+    {
+        file << cont;
+        file.close();
+    }
+    else
+    {
+        cout << "Unable to open file";
+    }
 }
