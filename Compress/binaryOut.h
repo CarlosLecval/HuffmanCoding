@@ -21,10 +21,8 @@ public:
     BinaryStdOut(string filename);
     bool open(string filename);
     void write(bool bit);
-    int getN();
     void flush();
     void close();
 };
-
 
 #endif

@@ -33,6 +33,7 @@ void BinaryStdOut::write(bool x) {
     writeBit(x);
 }
 
+
 void BinaryStdOut::flush(){
     clearBuffer();
     fout.flush();
@@ -42,8 +43,4 @@ void BinaryStdOut::close() {
     flush();
     fout.close();
     cout << "-------------------- BinaryStdOut Writing Closing --------------------" << endl;
-}
-
-int BinaryStdOut::getN() {
-    return N;
 }
