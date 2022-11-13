@@ -30,43 +30,6 @@ bool BinaryStdIn::readBool() {
     return bit;
 }
 
-char BinaryStdIn::readChar() {
-    if(N == 8) {
-        char x = buffer;
-        fillBuffer();
-        return x;
-    }
-
-    char x = buffer;
-    x <<= (8-N);
-    int oldN = N;
-    fillBuffer();
-    N = oldN;
-    unsigned char tmp = (unsigned char)buffer;
-    x |= ( tmp >> N);
-    
-    #ifdef DEBUG
-        cout << "Function readChar() return : " << x << endl;
-    #endif
-
-    return x;
-}
-
-int BinaryStdIn::readInt() {
-    int x = 0;
-    for (int i = 0; i < 4; i++) {
-        char c = readChar();
-        x <<= 8;
-        x |= c;        
-    }
-
-    #ifdef DEBUG
-        cout << "Function readInt() return : " << x << endl;
-    #endif
-
-    return x;
-}
-
 void BinaryStdIn::close() {
     fin.close();
 }

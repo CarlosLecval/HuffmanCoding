@@ -20,8 +20,6 @@ public:
     BinaryStdIn(string filename);
     bool open(string filename);
     bool readBool();
-    char readChar();
-    int readInt();
     void close();
     bool is_empty();
 };
