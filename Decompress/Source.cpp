@@ -1,11 +1,10 @@
 #include "ReconstructedFile.h"
 #include "binaryIn.h"
+#include <iostream>
 #include <fstream>
 int main()
 {
     int cont = 0;
-
-    // ifstream file("/Users/jyaru/Documents/Escuela/Tercer semestre/Estructura de datos/HuffmanCoding/Compress/file_code.txt");
     ifstream file("../Compress/file_code.txt");
     string line;
     while (getline(file, line))
@@ -15,7 +14,6 @@ int main()
     char characterArray[cont];
     string codeArray[cont];
     file.close();
-    // file.open("/Users/jyaru/Documents/Escuela/Tercer semestre/Estructura de datos/HuffmanCoding/Compress/file_code.txt");
     file.open("../Compress/file_code.txt");
     cont = 0;
     while (getline(file, line))
@@ -25,8 +23,7 @@ int main()
         cont++;
     }
     file.close();
-
-    BinaryStdIn binaryStdIn("encoded.dat");
+    BinaryStdIn binaryStdIn("encoded");
 
     string binaryCode = "";
 
@@ -42,7 +39,6 @@ int main()
             binaryCode += "0";
         }
     }
-    cout << binaryCode << endl;
     ReconstructedFile decompressedFile(characterArray, codeArray, cont);
     string text = decompressedFile.decompress(binaryCode);
     decompressedFile.openAndWriteFile(text);

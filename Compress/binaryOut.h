@@ -21,11 +21,10 @@ class BinaryStdOut
 public:
     BinaryStdOut(string filename);
     bool open(string filename);
-
     void write(bool bit);
     void write(char ch);
     void write(int i);
-
+    int getN();
     void flush();
     void close();
 };
