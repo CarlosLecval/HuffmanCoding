@@ -1,5 +1,6 @@
 #include "CompressedFileMaker.h"
 #include "HuffmanTree.h"
+#include "binaryIn.h"
 
 struct FrecuenciaCaracter{
     vector<char> caracter;

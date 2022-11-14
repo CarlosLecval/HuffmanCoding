@@ -4,6 +4,7 @@ using namespace std;
 
 BinaryStdOut::BinaryStdOut(string filename) {
     open(filename);
+    N = 0;
 }
 
 bool BinaryStdOut::open(string filename) {
@@ -26,7 +27,7 @@ void BinaryStdOut::writeBit(bool bit) {
     buffer <<= 1;
     if (bit) buffer |= 1;
     N++;
-    if (N == 8) clearBuffer();
+    if (N == 8) {clearBuffer();}
 }
 
 void BinaryStdOut::write(bool x) {
